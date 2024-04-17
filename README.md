@@ -49,7 +49,7 @@ Docker
 
 ```bash
 cd ~/Git/OpenDataTelemetry/OpenDataTelemetry
-docker compose up
+sudo docker-compose up
 ```
 <br>
 gateway-mqtt-lns-imt with local decoded and simulator
