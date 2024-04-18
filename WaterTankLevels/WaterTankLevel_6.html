@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WaterTankLavel_1</title>
+    <title>WaterTankLavel_6</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>WaterTankLevel - 1</h1>
+    <h1>WaterTankLevel - 6</h1>
     <div id="graph1"></div>
     <div id="graph2"></div>
     <div id="graph3"></div>
@@ -15,7 +15,7 @@
 
     <script>
         function fetchData() {
-            let url = "http://127.0.0.1:5000/api/data/WaterTankLavel/WaterTankLavel_1";
+            let url = "http://127.0.0.1:5000/api/data/WaterTankLavel/WaterTankLavel_6";
 
             fetch(url)
                 .then(response => response.json())
@@ -91,7 +91,7 @@
 
         fetchData(); // Chama a função fetchData assim que a página é carregada
 
-        
+       
         setInterval(fetchData, 2000);
     </script>
 </body>
