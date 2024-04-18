@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botões</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0; /* Cor de fundo do corpo da página */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px; /* Espaçamento entre as duas colunas de botões */
+            flex-wrap: wrap;
+            max-width: 600px; /* Largura máxima para evitar que os botões se espalhem demais */
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px; /* Espaçamento vertical entre os botões */
+        }
+
+        .button-container button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff; /* Cor de fundo azul */
+            color: #fff; /* Cor do texto branco */
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .button-container button:hover {
+            background-color: #0056b3; /* Cor de fundo azul mais escura no hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container">
+        <div class="column">
+            <button onclick="redirect('WaterTankLevels/WaterTankLevel_1')">Water Tank Level - 1</button>
+            <button onclick="redirect('link2')">Botão 2</button>
+            <button onclick="redirect('link3')">Botão 3</button>
+            <button onclick="redirect('link4')">Botão 4</button>
+            <button onclick="redirect('link5')">Botão 5</button>
+            <button onclick="redirect('link6')">Botão 6</button>
+            <button onclick="redirect('link7')">Botão 7</button>
+            <button onclick="redirect('link8')">Botão 8</button>
+        </div>
+        <div class="column">
+            <button onclick="redirect('')">Botão 9</button>
+            <button onclick="redirect('link10')">Botão 10</button>
+            <button onclick="redirect('link11')">Botão 11</button>
+            <button onclick="redirect('link12')">Botão 12</button>
+            <button onclick="redirect('link13')">Botão 13</button>
+            <button onclick="redirect('link14')">Botão 14</button>
+            <button onclick="redirect('link15')">Botão 15</button>
+            <button onclick="redirect('link16')">Botão 16</button>
+        </div>
+    </div>
+
+    <script>
+        function redirect(link) {
+            window.location.href = link + '.html'; // Altere '.html' para a extensão da página para a qual você deseja redirecionar
+        }
+    </script>
+</body>
+</html>

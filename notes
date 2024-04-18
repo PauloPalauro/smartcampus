@@ -1,0 +1,68 @@
+
+Fields
+
+    data_boardVoltage
+
+    data_counter
+
+    data_distance
+
+    data_humidity
+
+    data_temperature
+
+    fCnt
+
+    rxInfo_altitude_0
+
+    rxInfo_altitude_1
+
+    rxInfo_latitude_0
+
+    rxInfo_latitude_1
+
+    rxInfo_longitude_0
+
+    rxInfo_longitude_1
+
+    rxInfo_loRaSNR_0
+
+    rxInfo_loRaSNR_1
+
+    rxInfo_rssi_0
+
+    rxInfo_rssi_1
+
+    txInfo_dataRate_spreadFactor
+
+    txInfo_frequency
+
+Tag Keys
+
+    applicationID
+
+    applicationName
+
+    devEUI
+
+    fPort
+
+    host
+
+    nodeName
+
+    rxInfo_mac_0
+
+    rxInfo_mac_1
+
+    rxInfo_name_0
+
+    rxInfo_name_1
+
+    txInfo_adr
+
+    txInfo_codeRate
+
+    txInfo_dataRate_bandwidth
+
+    txInfo_dataRate_modulation
