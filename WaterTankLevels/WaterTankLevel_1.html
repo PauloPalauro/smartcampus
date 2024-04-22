@@ -14,11 +14,11 @@
     <div id="graph4"></div>
 
     <script>
-        function fetchData() {
+        function fetchData() { // buscar dados da API e plotar os gráficos.
             let url = "http://127.0.0.1:5000/api/data/WaterTankLavel/WaterTankLavel_1";
 
-            fetch(url)
-                .then(response => response.json())
+            fetch(url) // Fazer uma requisição HTTP para a URL da API
+                .then(response => response.json()) // Convertidos para JSON
                 .then(data => {
                     let time = data.time;
                     let data_boardVoltage = data.data_boardVoltage;
@@ -37,6 +37,7 @@
                     let layout1 = {
                         title: 'Data Board Voltage'
                     };
+                    //gráfico é criado usando Plotly.newPlot(), onde passamos o ID do contêiner ('graph1', 'graph2', etc.), os traces correspondentes e os layouts.
                     Plotly.newPlot('graph1', [trace1], layout1);
 
                     // Plot data_counter
@@ -89,9 +90,9 @@
                 });
         }
 
-        fetchData(); // Chama a função fetchData assim que a página é carregada
+        fetchData(); // é chamada uma vez para buscar e plotar os dados inicialmente
 
-        
+        // é usado para chamar a função fetchData() a cada 2000 milissegundos (2 segundos), atualizando assim os dados dos gráficos periodicamente.
         setInterval(fetchData, 2000);
     </script>
 </body>
