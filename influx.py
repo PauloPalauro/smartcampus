@@ -20,7 +20,7 @@ client = InfluxDBClient(url=url, token=token, org=org)
 # Define um End-Point da API para recuperar dados do sensor WaterTankLavel com base no seu nome;
 @app.route('/api/data/WaterTankLavel/<nodename>', methods=['GET'])
 def get_WaterTankLavel_by_nodename(nodename):
-    # Query InfluxDB para recuperar dados do hidrômetro com base no nome nome --> https://docs.influxdata.com/influxdb/v2/query-data/flux/;
+    # Query InfluxDB para recuperar dados do hidrômetro com base no nome --> https://docs.influxdata.com/influxdb/v2/query-data/flux/;
     query = f'''
         from(bucket:"{bucket}") 
             |> range(start: -1h)
