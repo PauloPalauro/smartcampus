@@ -11,8 +11,8 @@ Com a criação da API em Flask, usar os end-points disponivel para pegar os dad
 <br>
 End-Points:
 
-- /api/data/WaterTankLavel/<nodename>
-- /api/data/Hidrometer/<nodename>
+- /api/data/WaterTankLavel/{nodename}
+- /api/data/Hidrometer/{nodename}
 <br>
 
 Trocar os <b>"{nodename}"</b>, pelo nomes dos sensores; <br>
