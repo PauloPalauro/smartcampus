@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtesianWell_1</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>ArtesianWell - 1</h1>
+    <div id="graph1"></div>
+    <div id="graph2"></div>
+    <div id="graph3"></div>
+
+    <script>
+        function fetchData() {
+            let url = "http://127.0.0.1:5000/api/data/ArtesianWell";
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    let time = data.time;
+                    let data_boardVoltage = data.data_boardVoltage;
+                    let data_pressure_0 = data.data_pressure_0;
+                    let data_pressure_1 = data.data_pressure_1;
+
+                    // Plot data_boardVoltage
+                    let trace1 = {
+                        x: time,
+                        y: data_boardVoltage,
+                        mode: 'lines',
+                        name: 'Data boardVoltage'
+                    };
+                    let layout1 = {
+                        title: 'Data boardVoltage'
+                    };
+                    Plotly.newPlot('graph1', [trace1], layout1);
+
+                    // Plot data_pressure_0
+                    let trace2 = {
+                        x: time,
+                        y: data_pressure_0,
+                        mode: 'lines',
+                        name: 'Data Pressure 0'
+                    };
+                    let layout2 = {
+                        title: 'Data Pressure 0'
+                    };
+                    Plotly.newPlot('graph2', [trace2], layout2);
+
+                    // Plot data_pressure_1
+                    let trace3 = {
+                        x: time,
+                        y: data_pressure_1,
+                        mode: 'lines',
+                        name: 'Data Pressure 1'
+                    };
+                    let layout3 = {
+                        title: 'Data Pressure 1'
+                    };
+                    Plotly.newPlot('graph3', [trace3], layout3);
+                });
+        }
+
+        fetchData(); 
+
+        setInterval(fetchData, 2000);
+    </script>
+</body>
+</html>

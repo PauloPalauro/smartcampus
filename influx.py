@@ -50,13 +50,34 @@ def get_WaterTankLavel_by_nodename(nodename):
 def get_Hidrometer_by_nodename(nodename):
     query = f'''
         from(bucket:"{bucket}")
-            |> range(start: -5h)
+            |> range(start: -1h)
             |> filter(fn: (r) => r._measurement == "Hidrometer")
             |> filter(fn: (r) => r.nodeName == "{nodename}")
             |> filter(fn: (r) => r._field == "data_boardVoltage" or r._field == "data_counter" or r._field == "data_humidity" or r._field == "data_temperature")
     '''
     result = client.query_api().query(query)
     data = {'nodeName': nodename,'time': [], 'data_boardVoltage': [], 'data_counter': [], 'data_humidity': [], 'data_temperature': []}
+    for table in result:
+        for record in table.records:
+            time = record.get_time().astimezone(pytz.timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')
+            data['time'].append(time)
+            field = record.get_field()
+            value = record.get_value()
+            data[field].append(value)
+    return jsonify(data)
+
+
+@app.route('/api/data/ArtesianWell', methods=['GET'])
+def get_ArtesianWell():
+    query = f'''
+        from(bucket:"{bucket}")
+            |> range(start: -1h)
+            |> filter(fn: (r) => r._measurement == "ArtesianWell")
+            |> filter(fn: (r) => r.nodeName == "ArtesianWell_1")
+            |> filter(fn: (r) => r._field == "data_boardVoltage" or r._field == "data_pressure_0" or r._field == "data_pressure_1")
+    '''
+    result = client.query_api().query(query)
+    data = {'nodeName': "ArtesianWell_1", 'time': [], 'data_boardVoltage': [], 'data_pressure_0': [], 'data_pressure_1': []}
     for table in result:
         for record in table.records:
             time = record.get_time().astimezone(pytz.timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')
