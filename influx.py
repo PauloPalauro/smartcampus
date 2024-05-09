@@ -26,13 +26,13 @@ def get_WaterTankLavel_by_nodename(nodename):
             |> range(start: -1h)
             |> filter(fn: (r) => r._measurement == "WaterTankLavel")
             |> filter(fn: (r) => r.nodeName == "{nodename}")
-            |> filter(fn: (r) => r._field == "data_boardVoltage" or r._field == "data_counter" or r._field == "data_distance" or r._field == "data_humidity" or r._field == "data_temperature")
+            |> filter(fn: (r) => r._field == "data_boardVoltage" or r._field == "data_distance")
     '''
     # "client.query_api()" para obter uma instância da API de consulta do InfluxDB.  "query(query)" para enviar a consulta "query" ao banco de dados e receber os resultados. O resultado da consulta é armazenado na variável "result".
     result = client.query_api().query(query)
 
     # inicializando um dicionário chamado data que será usado para armazenar os dados recuperados da consulta ao banco de dados
-    data = {'nodeName': nodename, 'time': [], 'data_boardVoltage': [], 'data_counter': [], 'data_distance': [], 'data_humidity': [], 'data_temperature': []}
+    data = {'nodeName': nodename, 'time': [], 'data_boardVoltage': [], 'data_distance': []}
 
     # Iteramos sobre os resultados da consulta (result). Retornar múltiplas tabelas de resultados, estamos percorrendo cada tabela (table) e, em seguida, iterando sobre os registros (record) dentro de cada tabela.
     for table in result:

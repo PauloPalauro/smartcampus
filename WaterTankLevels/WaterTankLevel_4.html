@@ -10,24 +10,18 @@
     <h1>WaterTankLevel - 4</h1>
     <div id="graph1"></div>
     <div id="graph2"></div>
-    <div id="graph3"></div>
-    <div id="graph4"></div>
-    <div id="graph5"></div>
 
     <script>
-        function fetchData() {
+        function fetchData() { // buscar dados da API e plotar os gráficos.
             let url = "http://127.0.0.1:5000/api/data/WaterTankLavel/WaterTankLavel_4";
 
-            fetch(url)
-                .then(response => response.json())
+            fetch(url) // Fazer uma requisição HTTP para a URL da API
+                .then(response => response.json()) // Convertidos para JSON
                 .then(data => {
                     let time = data.time;
                     let data_boardVoltage = data.data_boardVoltage;
-                    let data_counter = data.data_counter;
                     let data_distance = data.data_distance;
-                    let data_humidity = data.data_humidity;
-                    let data_temperature = data.data_temperature;
-
+            
 
                     let trace1 = {
                         x: time,
@@ -38,61 +32,27 @@
                     let layout1 = {
                         title: 'Data Board Voltage'
                     };
+                    //gráfico é criado usando Plotly.newPlot(), onde passamos o ID do contêiner ('graph1', 'graph2', etc.), os traces correspondentes e os layouts.
                     Plotly.newPlot('graph1', [trace1], layout1);
 
                     // Plot data_counter
                     let trace2 = {
                         x: time,
-                        y: data_counter,
-                        mode: 'lines',
-                        name: 'Data Counter'
-                    };
-                    let layout2 = {
-                        title: 'Data Counter'
-                    };
-                    Plotly.newPlot('graph2', [trace2], layout2);
-
-                    // Plot data_distance
-                    let trace3 = {
-                        x: time,
                         y: data_distance,
                         mode: 'lines',
                         name: 'Data Distance'
                     };
-                    let layout3 = {
+                    let layout2 = {
                         title: 'Data Distance'
                     };
-                    Plotly.newPlot('graph3', [trace3], layout3);
+                    Plotly.newPlot('graph2', [trace2], layout2);
 
-                    // Plot data_humidity
-                    let trace4 = {
-                        x: time,
-                        y: data_humidity,
-                        mode: 'lines',
-                        name: 'Data Humidity'
-                    };
-                    let layout4 = {
-                        title: 'Data Humidity'
-                    };
-                    Plotly.newPlot('graph4', [trace4], layout4);
-
-                    // Plot data_temperature
-                    let trace5 = {
-                        x: time,
-                        y: data_temperature,
-                        mode: 'lines',
-                        name: 'Data Temperature'
-                    };
-                    let layout5 = {
-                        title: 'Data Temperature'
-                    };
-                    Plotly.newPlot('graph5', [trace5], layout5);
                 });
         }
 
-        fetchData(); // Chama a função fetchData assim que a página é carregada
+        fetchData(); // é chamada uma vez para buscar e plotar os dados inicialmente
 
-     
+        // é usado para chamar a função fetchData() a cada 2000 milissegundos (2 segundos), atualizando assim os dados dos gráficos periodicamente.
         setInterval(fetchData, 2000);
     </script>
 </body>
