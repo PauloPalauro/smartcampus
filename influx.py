@@ -53,10 +53,10 @@ def get_Hidrometer_by_nodename(nodename):
             |> range(start: -1h)
             |> filter(fn: (r) => r._measurement == "Hidrometer")
             |> filter(fn: (r) => r.nodeName == "{nodename}")
-            |> filter(fn: (r) => r._field == "data_boardVoltage" or r._field == "data_counter" or r._field == "data_humidity" or r._field == "data_temperature")
+            |> filter(fn: (r) => r._field == "data_boardVoltage" or r._field == "data_counter")
     '''
     result = client.query_api().query(query)
-    data = {'nodeName': nodename,'time': [], 'data_boardVoltage': [], 'data_counter': [], 'data_humidity': [], 'data_temperature': []}
+    data = {'nodeName': nodename,'time': [], 'data_boardVoltage': [], 'data_counter': []}
     for table in result:
         for record in table.records:
             time = record.get_time().astimezone(pytz.timezone('America/Sao_Paulo')).strftime('%Y-%m-%d %H:%M:%S')

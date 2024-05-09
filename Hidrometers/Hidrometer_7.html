@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hidrometer_1</title>
+    <title>Hidrometer_7</title>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h1>Hidrometer - 1</h1>
+    <h1>Hidrometer - 7</h1>
     <div id="graph1"></div>
     <div id="graph2"></div>
-    <div id="graph3"></div>
-    <div id="graph4"></div>
 
     <script>
         function fetchData() {
-            let url = "http://127.0.0.1:5000/api/data/Hidrometer/Hidrometer_7";
+            let url = `http://127.0.0.1:5000/api/data/Hidrometer/Hidrometer_7`;
 
             fetch(url)
                 .then(response => response.json())
@@ -23,10 +21,8 @@
                     let time = data.time;
                     let data_boardVoltage = data.data_boardVoltage;
                     let data_counter = data.data_counter;
-                    let data_humidity = data.data_humidity;
-                    let data_temperature = data.data_temperature;
 
-                    // Plot data_counter
+                    // Plot data_boardVoltage
                     let trace1 = {
                         x: time,
                         y: data_boardVoltage,
@@ -38,7 +34,7 @@
                     };
                     Plotly.newPlot('graph1', [trace1], layout1);
 
-                    // Plot data_humidity
+                    // Plot data_counter
                     let trace2 = {
                         x: time,
                         y: data_counter,
@@ -49,36 +45,11 @@
                         title: 'Data Counter'
                     };
                     Plotly.newPlot('graph2', [trace2], layout2);
-
-                    // Plot data_temperature
-                    let trace3 = {
-                        x: time,
-                        y: data_humidity,
-                        mode: 'lines',
-                        name: 'Data Humidity'
-                    };
-                    let layout3 = {
-                        title: 'Data Humidity'
-                    };
-                    Plotly.newPlot('graph3', [trace3], layout3);
-
-                    // Plot data_boardVoltage
-                    let trace4 = {
-                        x: time,
-                        y: data_temperature,
-                        mode: 'lines',
-                        name: 'Data Temperature'
-                    };
-                    let layout4 = {
-                        title: 'Data Temperature'
-                    };
-                    Plotly.newPlot('graph4', [trace4], layout4);
                 });
         }
 
         fetchData(); 
 
-      
         setInterval(fetchData, 2000);
     </script>
 </body>
