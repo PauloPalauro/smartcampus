@@ -66,3 +66,83 @@ Tag Keys
     txInfo_dataRate_bandwidth
 
     txInfo_dataRate_modulation
+
+
+
+
+    /api/data/WaterTankLavel
+{
+    nodeName: {
+        data_distance: [
+            12.12,
+            65.2,
+            34.1,
+            ...
+        ],
+        timestamp: [
+            2024-05-10 16:40:32,
+            2024-05-10 16:40:40,
+            2024-05-10 16:40:48,
+            ...
+        ]
+    },
+    nodeName_2: {
+        data_distance: [
+            12.12,
+            65.2,
+            34.1,
+            ...
+        ],
+        timestamp: [
+            2024-05-10 16:40:32,
+            2024-05-10 16:40:40,
+            2024-05-10 16:40:48,
+            ...
+        ]
+    },
+    nodeName_3: ...
+}
+
+
+{
+  "WaterTankLavel_1": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_2": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_3": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_4": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_5": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_6": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_7": {
+    "data_distance": [],
+    "timestamp": []
+  },
+  "WaterTankLavel_8": {
+    "data_distance": [],
+    "timestamp": []
+  }
+}
+
+
+
+"ArtesianWell": {
+    "data_pressure_0": [],
+    "data_pressure_1": []
+    "timestamp": []
+  },
