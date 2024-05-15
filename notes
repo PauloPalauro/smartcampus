@@ -71,37 +71,7 @@ Tag Keys
 
 
     /api/data/WaterTankLavel
-{
-    nodeName: {
-        data_distance: [
-            12.12,
-            65.2,
-            34.1,
-            ...
-        ],
-        timestamp: [
-            2024-05-10 16:40:32,
-            2024-05-10 16:40:40,
-            2024-05-10 16:40:48,
-            ...
-        ]
-    },
-    nodeName_2: {
-        data_distance: [
-            12.12,
-            65.2,
-            34.1,
-            ...
-        ],
-        timestamp: [
-            2024-05-10 16:40:32,
-            2024-05-10 16:40:40,
-            2024-05-10 16:40:48,
-            ...
-        ]
-    },
-    nodeName_3: ...
-}
+
 
 
 {
@@ -146,3 +116,35 @@ Tag Keys
     "data_pressure_1": []
     "timestamp": []
   },
+
+
+{
+  dados:[
+    {
+      "nome" : "WaterTankLavel_1",
+      "data_distance" : [
+        0.5,
+        1.9,
+        ...
+        ],
+      "timestamp" : [  
+        "2024-05-15 18:44:07",
+        "2024-05-15 18:45:03",
+        ...
+       ]
+    },
+    {
+      nome" : "WaterTankLavel_2",
+      "data_distance" : [
+        0.5,
+        1.9,
+        ...
+        ],
+      "timestamp" : [  
+        "2024-05-15 18:44:07",
+        "2024-05-15 18:45:03",
+        ...
+       ]
+    },
+  ]
+}

@@ -18,9 +18,11 @@ url = "https://us-east-1-1.aws.cloud2.influxdata.com/"
 client = InfluxDBClient(url=url, token=token, org=org)
 
 
+from flask import jsonify
+
 @app.route('/api/data/WaterTankLavel', methods=['GET'])
 def get_WaterTankLavel():
-    data_by_nodename = {}
+    data = []
     for nodename in range(1, 9):  
         query = f'''
             from(bucket:"{bucket}") 
@@ -30,7 +32,7 @@ def get_WaterTankLavel():
                 |> filter(fn: (r) => r._field == "data_distance")
         '''
         result = client.query_api().query(query)
-        nodename_data = {'data_distance': [], 'timestamp': []}
+        nodename_data = {'nome': f'WaterTankLavel_{nodename}', 'data_distance': [], 'timestamp': []}
 
         for table in result:
             for record in table.records:
@@ -38,16 +40,17 @@ def get_WaterTankLavel():
                 nodename_data['timestamp'].append(time)
                 value = record.get_value()
                 nodename_data['data_distance'].append(value)
-        data_by_nodename[f'WaterTankLavel_{nodename}'] = nodename_data
+        data.append(nodename_data)
 
-    return jsonify(data_by_nodename)
+    return jsonify({'dados': data})
+
 
 
 
 
 @app.route('/api/data/Hidrometer', methods=['GET'])
 def get_Hidrometer():
-    data_by_nodename = {}
+    data = []
     for nodename in range(1, 9):  
         query = f'''
             from(bucket:"{bucket}") 
@@ -57,7 +60,7 @@ def get_Hidrometer():
                 |> filter(fn: (r) => r._field == "data_counter")
         '''
         result = client.query_api().query(query)
-        nodename_data = {'data_counter': [], 'timestamp': []}
+        nodename_data = {'nome': f'Hidrometer_{nodename}', 'data_counter': [], 'timestamp': []}
 
         for table in result:
             for record in table.records:
@@ -65,8 +68,9 @@ def get_Hidrometer():
                 nodename_data['timestamp'].append(time)
                 value = record.get_value()
                 nodename_data['data_counter'].append(value)
-        data_by_nodename[f'Hidrometer_{nodename}'] = nodename_data
-    return jsonify(data_by_nodename)
+        data.append(nodename_data)
+
+    return jsonify({'dados': data})
 
 
 
