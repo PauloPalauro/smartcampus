@@ -11,27 +11,24 @@ Com a criação da API em Flask, usar os end-points disponivel para pegar os dad
 <br>
 End-Points:
 
-- /api/data/WaterTankLavel/{nodename}
-- /api/data/Hidrometer/{nodename}
+- /api/data/WaterTankLavel
+- /api/data/Hidrometer
+- /api/data/ArtesianWell
 <br>
 
-Trocar os <b>"{nodename}"</b>, pelo nomes dos sensores; <br>
-<br>
-Os sensores do <b>"WaterTankLavel"</b> são <b>"WaterTankLavel_1"</b> a <b>"WaterTankLavel_8"</b>
-<br>
-Os sensores do <b>"Hidrometer"</b> são <b>"Hidrometer_1"</b> a <b>"Hidrometer_8"</b>
-<br>
-<br>
-Exemplo com <b>"WaterTankLavel"</b>:
-```bash
-/api/data/WaterTankLavel/WaterTankLavel_5
-```
-<br>
-Exemplo com <b>"Hidrometer"</b>: 
+Exemplo de Resposta (WaterTankLavel): <br>
 
-```bash
- /api/data/WaterTankLavel/Hidrometer_7
-```
+>{ <br>
+   "WaterTankLavel_1": { <br>
+    &nbsp; &nbsp; &nbsp;"data_distance": [], <br>
+    &nbsp; &nbsp; &nbsp;"timestamp": [] <br>
+  &nbsp;}, <br>
+  "WaterTankLavel_2": { <br>
+     &nbsp; &nbsp; &nbsp;"data_distance": [], <br>
+     &nbsp; &nbsp; &nbsp;"timestamp": [] <br>
+ &nbsp; }, <br>
+}
+
 
 <br>
 <h4>Exemplo de Funcionamento:</h4>
