@@ -33,7 +33,6 @@ Exemplo de Resposta (WaterTankLavel): <br>
 <br>
 <h4>Exemplo de Funcionamento:</h4>
 <img src="https://i.imgur.com/CFAVJXX.png" width="" alt="maua monitoria" />
-- Obs: Não tenho certeza disso, é como eu acho que funciona pelo que eu fui vendo e mexendo.
 <br>
 <br>
 
