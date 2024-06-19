@@ -11,10 +11,10 @@ CORS(app)  # Configura o CORS para permitir requisições cross-origin;
 
 
 # Configurações do InfluxDB;
-bucket = "smartcampusmaua"
-org = "4e336945c11275a9"
-token = "Dmd7pZotErhWPDkf0mJEyVffDVJAAmFreaf3xfM7edm-gt12xXdlcxGv8E8MUrSK31o4zLxQK-OALLK9iwKoQg=="
-url = "https://us-east-1-1.aws.cloud2.influxdata.com/"
+bucket = "<YOUR_BUCKET_HERE>"
+org = "<YOUR_ORG_HERE>"
+token = "<YOUR_READ_TOKEN>"
+url = "<YOUR_URL_HERE>"
 client = InfluxDBClient(url=url, token=token, org=org)
 
 
